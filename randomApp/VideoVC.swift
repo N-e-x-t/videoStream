@@ -12,8 +12,20 @@ class VideoVC: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
     
+    private var _item : cellModel!
+    
+    var item : cellModel {
+        get {
+            return _item
+        } set {
+            _item = newValue
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        webView.loadHTMLString(item.videoURL, baseURL: nil)
 
         // Do any additional setup after loading the view.
     }
